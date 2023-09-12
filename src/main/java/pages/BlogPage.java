@@ -12,11 +12,11 @@ public class BlogPage extends PageHelper implements BlogPageElements {
         super(driver);
     }
 
-    @FindBy(xpath = MELODIC_MIND_BLOG)
-    WebElement melodicMindBlog;
+    @FindBy(xpath = MELODIC_DAY_ZERO)
+    WebElement melodicMindBlogDayZero;
 
     public boolean isElementPresent_MelodicMindBlog(){
-        return isElementVisible(melodicMindBlog, 5);
+        return isElementVisible(melodicMindBlogDayZero, 5);
     }
 
 }

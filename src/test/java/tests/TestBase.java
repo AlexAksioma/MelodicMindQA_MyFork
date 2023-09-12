@@ -1,5 +1,7 @@
 package tests;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,8 +13,11 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.time.Duration;
+
+import static helpers.FileHelper.takeSnapShot;
 
 public class TestBase {
 
@@ -50,7 +55,7 @@ public class TestBase {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void stopTest(Method method, ITestResult result){
+    public void stopTest(Method method, ITestResult result) throws Exception {
         timeEnd = System.currentTimeMillis();
         if(result.isSuccess())
             logger.info("Test result --> PASSED");
@@ -59,6 +64,7 @@ public class TestBase {
         logger.info("Stop test ---> "+method.getName());
         logger.info("Method duration on milliseconds --> "+(timeEnd-timeStart)+" msec");
         logger.info("=========================================================================");
+        takeSnapShot(driver);
         driver.quit();
     }
 

@@ -66,5 +66,13 @@ public class FunctionalTests extends TestBase {
                 .isElementPresent_DeleteAccount());
     }
 
+    @Test
+    public void openPageSettings(){
+        Assert.assertTrue(new HomePage(driver)
+                .clickButtonCookiesIUnderstand()
+                .clickDropDownField_Settings()
+                .isElementPresent_ButtonX());
+    }
+
 
 }

@@ -16,6 +16,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 test_logs/
+test_logs/screenshots/
 src/test/resources/dataForLogin/
 
 ### Eclipse ###
